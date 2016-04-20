@@ -1,0 +1,12 @@
+{
+  "parser": "babel-eslint",
+  // To give you an idea how to override rule options:
+  "rules": {
+    "strict": 0
+  },
+  "ecmaFeatures": {
+    "modules": true,
+    "regexYFlag": true,
+    "regexUFlag": true
+  }
+}
