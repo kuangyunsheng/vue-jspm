@@ -6,6 +6,9 @@ var gulp        = require('gulp');
 // var url         = require('url');
 var browserSync = require('browser-sync');
 
+var htmlreplace = require('gulp-html-replace');
+var exec = require('child_process').exec;
+
 try {
     var options = yaml.safeLoad(fs.readFileSync('./config.yaml', 'utf-8'));
 } catch (error) {
@@ -30,21 +33,23 @@ gulp.task('default', taskDependencies, function() {
 
 function buildIndexPage() {
     gulp.src('./src/index.html')
-    .pipe(replace(/<!--bundle begin-->.*<!--bundle end-->/gm, '<script src="app.js"></script>'))
-    .pipe(gulp.dest('dist/index.html'));
+    .pipe(htmlreplace({'js': 'app.min.js'}))
+    .pipe(gulp.dest('dist/'));
 }
 
-function buildCss() {
-    gulp.src('./src/style.css')
-    .pipe()
-    .pipe(gulp.dest('dist/style.css'));
+function bundleJs(cb) {
+    exec('jspm bundle-sfx src/main.js dist/app.min.js --minify', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+    });
 }
 
 var distTaskDependencies = (function () {
+    gulp.task('bundleJs', bundleJs);
     gulp.task('buildIndexPage', buildIndexPage);
-    gulp.task('buildCss', buildCss);
-    return ['buildIndexPage','buildIndexPage']
+    return ['bundleJs', 'buildIndexPage']
 })();
 
-gulp.task('dist', distTaskDependencies, function () {
+gulp.task('build', distTaskDependencies, function () {
 });

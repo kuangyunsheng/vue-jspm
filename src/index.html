@@ -2,13 +2,16 @@
   <head>
     <title>jspm demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">  
-
+    <link href="style.css" rel="stylesheet">
+    
+    <!-- build:js -->
     <script src="/jspm_packages/system.js"></script>
     <script src="/config.js"></script>
     <script>      
       System.import('./main')
             .then(null, console.error.bind(console));
     </script>
+    <!-- endbuild -->
   </head>
   <body>
     <div id="example">Loading...</div>

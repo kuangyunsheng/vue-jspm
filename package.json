@@ -22,6 +22,7 @@
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
     "gulp": "^3.9.1",
+    "gulp-html-replace": "^1.5.5",
     "isparta": "^3.0.3",
     "istanbul": "gotwarlost/istanbul.git#source-map",
     "js-yaml": "^3.5.5",
