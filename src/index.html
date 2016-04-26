@@ -2,7 +2,9 @@
   <head>
     <title>jspm demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">  
-    <link href="style.css" rel="stylesheet">
+    <!-- build:css -->
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <!-- endbuild -->
     
     <!-- build:js -->
     <script src="/jspm_packages/system.js"></script>
@@ -10,6 +12,13 @@
     <script>      
       System.import('./main')
             .then(null, console.error.bind(console));
+    </script>
+    <!-- endbuild -->
+    
+    <!-- build:scss -->
+    <script>  
+      System.import('./main.scss!');
+      System.import('./sub.scss!');
     </script>
     <!-- endbuild -->
   </head>

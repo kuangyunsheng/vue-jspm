@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import template from './todoList.html!text'
 
+// 数据模型
 let model = {
   newTodo: '',
   todos: [
@@ -8,6 +9,7 @@ let model = {
   ]
 };
 
+// 增加代办事项
 function addTodo() {
   var text = this.newTodo.trim()
   if (text) {
@@ -16,10 +18,12 @@ function addTodo() {
   }
 }
 
+// 增移除代办事项
 function removeTodo(index) {
   this.todos.splice(index, 1)
 }
 
+// 组件定义
 var todoList = Vue.extend({
   template,
   data() {

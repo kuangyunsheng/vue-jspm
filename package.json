@@ -9,6 +9,8 @@
       "babel": "npm:babel-core@^5.8.24",
       "babel-runtime": "npm:babel-runtime@^5.8.24",
       "core-js": "npm:core-js@^1.1.4",
+      "css": "github:systemjs/plugin-css@^0.1.21",
+      "scss": "github:mobilexag/plugin-sass@^0.4.3",
       "text": "github:systemjs/plugin-text@^0.0.7",
       "vue": "npm:vue@^1.0.21"
     }
@@ -22,7 +24,12 @@
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
     "gulp-html-replace": "^1.5.5",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^2.0.0-alpha",
     "isparta": "^3.0.3",
     "istanbul": "gotwarlost/istanbul.git#source-map",
     "js-yaml": "^3.5.5",

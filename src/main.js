@@ -2,7 +2,7 @@ import Vue from 'vue';
 import todoList from './todoList';
 import tmpl from './main.html!text';
 
-var ready = ()=> {
+function bootstrap(){
     var root =  new Vue({  
         el: '#example',
         template: tmpl,
@@ -12,9 +12,12 @@ var ready = ()=> {
     });
 }
 
-if ( document.addEventListener ) {
-    document.addEventListener('DOMContentLoaded', ready);
+if(document.querySelector('#example')){
+    bootstrap();
+}
+else if ( document.addEventListener ) {
+    document.addEventListener('DOMContentLoaded', bootstrap);
 }
 else { 
-    document.attachEvent( "onreadystatechange",ready);
+    document.attachEvent( "onreadystatechange",bootstrap);
 }
