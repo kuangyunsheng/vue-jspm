@@ -4,7 +4,7 @@ const htmlreplace = require('gulp-html-replace');
 const exec = require('child_process').exec;
 const sass = require('gulp-sass');
 const concat = require('gulp-concat');                            //- 多个文件合并为一个；
-const minifyCss = require('gulp-minify-css');                     //- 压缩CSS为一行；
+const minifyCss = require('gulp-clean-css');                     //- 压缩CSS为一行；
 const autoprefixer = require('gulp-autoprefixer');
 
 const distDir = 'dist/';
@@ -30,7 +30,7 @@ function bundleJs(cb) {
 }
 
 function bundleCss() {
-    return gulp.src('./src/**/*.scss')
+    return gulp.src('./src/main.scss')
     .pipe(sass().on('error', sass.logError))   
     .pipe(autoprefixer())
     .pipe(concat(distCssFile))
