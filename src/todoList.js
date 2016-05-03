@@ -29,7 +29,7 @@ var todoList = Vue.extend({
   data() {
     return model;
   },
-  methods:{
+  methods: {
     addTodo,
     removeTodo
   }
