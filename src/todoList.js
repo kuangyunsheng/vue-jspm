@@ -1,12 +1,14 @@
 import Vue from 'vue';
 import template from './todoList.html!text'
 
-// 数据模型
-let model = {
-  newTodo: '',
-  todos: [
-    { text: 'Add some todos' }
-  ]
+// 构造初始数据
+function data(){
+  return {
+    newTodo: '',
+    todos: [
+      { text: 'Add some todos' }
+    ]
+  }
 };
 
 // 增加代办事项
@@ -26,9 +28,7 @@ function removeTodo(index) {
 // 组件定义
 var todoList = Vue.extend({
   template,
-  data() {
-    return model;
-  },
+  data,
   methods: {
     addTodo,
     removeTodo
